@@ -18,7 +18,7 @@ async function runExample() {
 
  
 
-    let tensorX = new ort.Tensor('float32',x,[1,11]);
+    let tensorX = new ort.Tensor('float32',x,  [1,11]);
     let feeds = {float_input: tensorX};
     let session = await ort.InferenceSession.create('xgboost_WineQuality_ort.onnx');
     let result = await session.run(feeds);
@@ -35,12 +35,10 @@ async function runExample() {
        
        <td> Rating of Wine Quality </td>
 
-       <td id = "td0" >  ${outputData.data[0].toFixed(2)}</td>
+       <td id = "td0" >  ${outputData}</td>
        </tr>
 
-    </table>
-
-    `;
+    </table>`;
     
 
 }
